@@ -1728,3 +1728,9 @@ body.dark .btn-outline {
 body.dark .header {
   background: rgba(28, 26, 23, 0.9);
 }
+body.dark .hero-buttons .btn img {
+  filter: invert(1) brightness(0);
+}
+body.dark .hero {
+  background: linear-gradient(135deg, #1c1a17 0%, #2a2520 100%);
+}

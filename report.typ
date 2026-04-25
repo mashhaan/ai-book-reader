@@ -155,7 +155,7 @@ src/
 == Головна сторінка (index.html)
 
 #figure(
-  raw(read("src/index.html"), lang: "html"),
+  raw(read("docs/index.html"), lang: "html"),
   caption: [Вихідний код index.html],
 )
 
@@ -164,7 +164,7 @@ src/
 == Сторінка "Про нас" (about.html)
 
 #figure(
-  raw(read("src/about.html"), lang: "html"),
+  raw(read("docs/about.html"), lang: "html"),
   caption: [Вихідний код about.html],
 )
 
@@ -173,7 +173,7 @@ src/
 == Сторінка "Контакти" (contacts.html)
 
 #figure(
-  raw(read("src/contacts.html"), lang: "html"),
+  raw(read("docs/contacts.html"), lang: "html"),
   caption: [Вихідний код contacts.html],
 )
 
@@ -182,7 +182,7 @@ src/
 == Стилі (style.css)
 
 #figure(
-  raw(read("src/css/style.css"), lang: "css"),
+  raw(read("docs/css/style.css"), lang: "css"),
   caption: [Вихідний код style.css],
 )
 

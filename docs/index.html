@@ -37,6 +37,10 @@
         </nav>
 
         <div class="header-cta">
+          <span id="clock" class="header-clock" aria-label="Поточний час"></span>
+          <button id="themeToggle" class="theme-toggle" type="button" aria-label="Темна тема">
+            ☾
+          </button>
           <a href="#hero" class="btn btn-primary">Завантажити</a>
         </div>
 
@@ -559,6 +563,13 @@
           </div>
         </div>
       </section>
+      <!-- ========== JS DYNAMIC FEATURES ========== -->
+      <section class="js-features-section">
+        <div class="container">
+          <span class="section-label">JS</span>
+          <div id="js-features"></div>
+        </div>
+      </section>
     </main>
 
     <!-- ========== FOOTER ========== -->
@@ -605,6 +616,7 @@
 
         <div class="footer-bottom">
           <p class="footer-copyright">&copy; 2025 AI Book Reader. Усі права захищені.</p>
+          <p id="visitCounter" class="visit-counter"></p>
           <div class="footer-socials">
             <a href="#" aria-label="Instagram">
               <svg
@@ -669,37 +681,15 @@
 
     <!-- ========== SCRIPTS ========== -->
     <script>
-      // Burger menu toggle
-      const burger = document.getElementById("burger");
-      const navMenu = document.getElementById("navMenu");
-
-      burger.addEventListener("click", () => {
-        burger.classList.toggle("active");
-        navMenu.classList.toggle("open");
-        const expanded = burger.getAttribute("aria-expanded") === "true";
-        burger.setAttribute("aria-expanded", !expanded);
-      });
-
-      // Close menu on link click
-      navMenu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          burger.classList.remove("active");
-          navMenu.classList.remove("open");
-          burger.setAttribute("aria-expanded", "false");
-        });
-      });
-
       // FAQ accordion
       document.querySelectorAll(".faq-question").forEach((btn) => {
         btn.addEventListener("click", () => {
           const item = btn.parentElement;
           const isActive = item.classList.contains("active");
-
           document.querySelectorAll(".faq-item").forEach((i) => i.classList.remove("active"));
           document
             .querySelectorAll(".faq-question")
             .forEach((b) => b.setAttribute("aria-expanded", "false"));
-
           if (!isActive) {
             item.classList.add("active");
             btn.setAttribute("aria-expanded", "true");
@@ -713,5 +703,6 @@
         header.classList.toggle("scrolled", window.scrollY > 10);
       });
     </script>
+    <script src="js/main.js" defer></script>
   </body>
 </html>

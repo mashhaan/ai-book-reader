@@ -1558,3 +1558,173 @@ button {
     padding: 28px 24px;
   }
 }
+
+/* ============================================
+     LAB6 — JS-driven UI
+     ============================================ */
+
+/* --- Header clock --- */
+.header-clock {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-secondary);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-secondary);
+}
+
+/* --- Theme toggle --- */
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+.theme-toggle:hover {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* --- Burger / mobile nav --- */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    bottom: 0;
+    width: 75%;
+    max-width: 320px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px;
+    background: var(--color-card-bg);
+    box-shadow: -8px 0 24px rgba(0, 0, 0, 0.08);
+    transform: translateX(100%);
+    transition: transform var(--transition-normal);
+    z-index: 50;
+  }
+  .nav-menu.nav-open,
+  .nav-menu.open {
+    transform: translateX(0);
+  }
+  .header-clock {
+    display: none;
+  }
+}
+
+/* --- Scroll-to-top button --- */
+#scrollTopBtn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--color-cta);
+  color: var(--color-white);
+  font-size: 20px;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(224, 122, 58, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition:
+    opacity var(--transition-normal),
+    transform var(--transition-normal),
+    background var(--transition-fast);
+  z-index: 90;
+}
+#scrollTopBtn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+#scrollTopBtn:hover {
+  background: var(--color-cta-hover);
+}
+
+/* --- Visit counter --- */
+.visit-counter {
+  font-size: 13px;
+  color: var(--color-footer-muted);
+  text-align: center;
+  margin: 8px 0;
+}
+
+/* --- Dynamic features section --- */
+.js-features-section {
+  padding: var(--section-padding);
+  background: var(--color-bg-secondary);
+}
+.js-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+.js-feature-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  cursor: pointer;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+}
+.js-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+.js-feature-card.active {
+  border-color: var(--color-cta);
+  box-shadow: 0 0 0 2px rgba(224, 122, 58, 0.25);
+}
+.js-feature-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+.js-feature-card h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--color-text-primary);
+}
+.js-feature-card p {
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* --- Dark theme --- */
+body.dark {
+  --color-bg-primary: #1c1a17;
+  --color-bg-secondary: #25221e;
+  --color-text-primary: #f5f0e8;
+  --color-text-secondary: #b8b0a4;
+  --color-border: #3a3530;
+  --color-card-bg: #25221e;
+  --color-white: #25221e;
+  --color-footer-bg: #131211;
+  --color-footer-text: #f5f0e8;
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+body.dark .btn-outline {
+  background-color: transparent;
+  color: var(--color-text-primary);
+}
+body.dark .header {
+  background: rgba(28, 26, 23, 0.9);
+}
